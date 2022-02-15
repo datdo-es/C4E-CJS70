@@ -1,0 +1,112 @@
+.header {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    background-image: url(https://cheerup.theme-sphere.com/travel/wp-content/uploads/sites/6/2016/09/header-bg.jpg);
+}
+.ts-contain{
+    height: 100%;
+}
+.logo{
+    margin: auto;
+    text-align: center;
+    padding: 30px
+}
+.social{
+    order: 2;
+    margin-left: auto;
+    margin-top: 1px;
+}
+.social-icons li{
+    display: inline-block;
+    font-size: var(--share-icons-size,14px);
+    margin-right: 14px;
+    font-size: 12px;
+}
+.bar{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: #212529;
+}
+.menu{
+    max-width: 1200px;
+    margin: auto;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: aliceblue;
+}
+.main-footer.stylish .upper-footer {
+    padding-top: 75px;
+    padding-bottom: 80px;
+}
+.upper-footer {
+    position: relative;
+    padding-top: 65px;
+    padding-bottom: 95px;
+}
+.ts-contain, .main {
+    padding: 0 35px;
+    padding: 0 var(--wrap-padding);
+}
+.ts-contain, .wrap, .main-wrap {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.wrap {
+    width: 1170px;
+    width: var(--main-width);
+    margin: 0 auto;
+    text-align: left;
+}
+.widgets {
+    margin-bottom: -65px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ts-row {
+    margin: 0 -28px;
+}
+.widget {
+    color: #989898;
+}
+.widget {
+    padding: 0 28px;
+    margin-bottom: 65px;
+    display: block;
+}
+.author-image img{
+    width: 100%
+}
+.footer{
+    max-width: 1200px;
+    margin: auto;
+}
+.bg-footer{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translate3d(0,0,0);
+
+    background-image: url(https://cheerup.theme-sphere.com/travel/wp-content/uploads/sites/6/2016/09/footer-bg-1.png);
+}
+.g-footer {
+    
+}
+.about-text{
+    text-align: center;
+}
+.app{
+    padding: 0;
+    margin: 0;
+}
+

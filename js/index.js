@@ -1,5 +1,4 @@
-import Header from "./containers/footer/index.js";
-// import Body from "./containers/footer/index.js";
+import Header from "./containers/header/index.js";
 import Footer from "./containers/footer/index.js";
 
 class App{
@@ -8,26 +7,24 @@ class App{
         this.setUpMain();
     }
     setUpMain() {
-        // let header = new Header;
-        // let body = new Body;
-        let footer = new Footer();
-        // let screen;
-        screen.appendChild(
-            // header.render(),
-            // body.render(),
-            footer.render(),
-        );
+        let screen;
         this.changeActiveScreen(screen);
     };
     changeActiveScreen(screen) {
         const appEle = document.getElementById("app");
-        if (appEle) {
-            if (this.$activeScreen) {
-                appEle.innerHTML = "";
-            }
-            this.$activeScreen = screen;
-            screen.render(appEle);
+        let header = new Header();
+        let bodyEle = document.createElement("div");
+        let footer = new Footer();
+        appEle.append(header.render(appEle), bodyEle, footer.render(appEle))
+    
+        if (bodyEle) {
+          if (this.$activeScreen) {
+            bodyEle.innerHTML = "";
+          }
+          this.$activeScreen = screen;
+          screen.render(bodyEle);
         }
+    
     }
 }
 
