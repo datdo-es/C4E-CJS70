@@ -1,5 +1,6 @@
 import ButtonComponent from "../../components/button.js";
 import InputComponent from "../../components/input.js";
+import LoginScreen from "../login/index.js";
 
 class Header {
     container;
@@ -8,6 +9,11 @@ class Header {
     bar;
     search;
     logo;
+
+    home;
+    contact;
+    sigin;
+    login;
 
     social;
 
@@ -49,19 +55,25 @@ class Header {
                 </ul>
             </div>
         `;
+        this.menu.addEventListener("click",this.handleChangeScreen);
 
         this.search = new InputComponent("search");
 
         this.social = document.createElement("ul");
         this.social.classList.add("social");
         this.social.innerHTML = `		
-        <i class="fa fa-facebook-f"></i>
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-google"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-linkedin-in"></i>
-        <i class="fa fa-pinterest"></i>
+            <i class="fa fa-facebook-f"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-google"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin-in"></i>
+            <i class="fa fa-pinterest"></i>
 		`
+    };
+    handleChangeScreen = (e)=>{
+        e.preventDefault();
+        const login = new LoginScreen();
+        app.changeActiveScreen(login);
     };
 
     render(appEle) {
