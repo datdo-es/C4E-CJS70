@@ -9,15 +9,11 @@ class LoginScreen{
     link;
 
     container;
-    imageCover;
     formLogin;
     titleScreen;
     constructor(){
         this.container = document.createElement("div");
         this.container.classList.add("row");
-
-        this.imageCover = document.createElement("div");
-        this.imageCover.classList.add("img-cover", "col-8");
 
         this.formLogin = document.createElement("form");
         this.formLogin.classList.add("form-container", "col-4");
@@ -53,27 +49,27 @@ class LoginScreen{
         app.changeActiveScreen(signUp);
     };
     
-    handleSubmit = async (e)=>{
-        e.preventDefault();
-        const {email, password} = e.target;
-        let isError =false;
-        if(checkEmail(email.value)!== null){
-            this.email.setError(checkEmail(email.value))
-            isError = true;
-        }
-        if(checkPassword(password.value)!==null){
-            this.password.setError(checkPassword(password.value))
-            isError = true;
-        }
-        if(!isError){
-            const userLogin = await loginWithEmailPassword(email.value, password.value)
-            const mainScreen = new InfoScreen();
-            app.changeActiveScreen(mainScreen);
-        }
-    }
+    // handleSubmit = async (e)=>{
+    //     e.preventDefault();
+    //     const {email, password} = e.target;
+    //     let isError =false;
+    //     if(checkEmail(email.value)!== null){
+    //         this.email.setError(checkEmail(email.value))
+    //         isError = true;
+    //     }
+    //     if(checkPassword(password.value)!==null){
+    //         this.password.setError(checkPassword(password.value))
+    //         isError = true;
+    //     }
+    //     if(!isError){
+    //         const userLogin = await loginWithEmailPassword(email.value, password.value)
+    //         const mainScreen = new InfoScreen();
+    //         app.changeActiveScreen(mainScreen);
+    //     }
+    // }
     render(appEle){
         this.formLogin.append(this.titleScreen, this.email.render(), this.password.render(), this.btnSubmit.render(), this.link);
-        this.container.append(this.imageCover, this.formLogin);
+        this.container.append(this.formLogin);
         appEle.appendChild(this.container);
     }
 }

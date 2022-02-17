@@ -68,41 +68,41 @@ class Register{
         const login = new LoginScreen();
         app.changeActiveScreen(login);
     };
-    setLoading() {
-        this.btnSubmit.render().innerText = "";
-        this.btnSubmit.render().innerHTML = `<div class="loader"></div>`;
-    }
-    handleSubmit = async (e)=>{
-        e.preventDefault();
-        const {name,email,password,repassword} = e.target;
-        let isError =false;
-        if(isValid(name.value)!==null){
-            this.name.setError(isValid(name.value))
-            isError = true;
-        }
-        if(checkEmail(email.value)!== null){
-            this.email.setError(checkEmail(email.value))
-            isError = true;
-        }
-        if(checkPassword(password.value)!==null){
-            this.password.setError(checkPassword(password.value))
-            isError = true;
-        }
-        if(checkRepassword(repassword.value)!==null){
-            this.repassword.setError(checkRepassword(repassword.value))
-            isError = true;
-        }
-        if(check2Password(password.value, repassword.value)){
-            this.repassword.setError(check2Password(repassword.value,password.value))
-            isError = true
-        }
-        if(!isError){
-            this.setLoading();
-            await createNewAccount(email.value, password.value);
-            const checkEmail = new CheckEmailScreen();
-            app.changeActiveScreen(checkEmail);
-        }
-    }
+    // setLoading() {
+    //     this.btnSubmit.render().innerText = "";
+    //     this.btnSubmit.render().innerHTML = `<div class="loader"></div>`;
+    // }
+    // handleSubmit = async (e)=>{
+    //     e.preventDefault();
+    //     const {name,email,password,repassword} = e.target;
+    //     let isError =false;
+    //     if(isValid(name.value)!==null){
+    //         this.name.setError(isValid(name.value))
+    //         isError = true;
+    //     }
+    //     if(checkEmail(email.value)!== null){
+    //         this.email.setError(checkEmail(email.value))
+    //         isError = true;
+    //     }
+    //     if(checkPassword(password.value)!==null){
+    //         this.password.setError(checkPassword(password.value))
+    //         isError = true;
+    //     }
+    //     if(checkRepassword(repassword.value)!==null){
+    //         this.repassword.setError(checkRepassword(repassword.value))
+    //         isError = true;
+    //     }
+    //     if(check2Password(password.value, repassword.value)){
+    //         this.repassword.setError(check2Password(repassword.value,password.value))
+    //         isError = true
+    //     }
+    //     if(!isError){
+    //         this.setLoading();
+    //         await createNewAccount(email.value, password.value);
+    //         const checkEmail = new CheckEmailScreen();
+    //         app.changeActiveScreen(checkEmail);
+    //     }
+    // }
     render(appEle){
         this.formRegister.append(this.titleScreen,this.name.render(),this.email.render(), this.password.render(),this.repassword.render(),this.btnSubmit.render(),this.link);
         this.container.append(this.imageCover, this.formRegister);

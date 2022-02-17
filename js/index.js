@@ -1,4 +1,6 @@
 import Header from "./containers/header/index.js";
+import Home from "./containers/home/index.js";
+import LoginScreen from "./containers/login/index.js"
 import Footer from "./containers/footer/index.js";
 
 class App{
@@ -13,10 +15,13 @@ class App{
     changeActiveScreen(screen) {
         const appEle = document.getElementById("app");
         let header = new Header();
-        let bodyEle = document.createElement("div");
+        let bodyEle = new LoginScreen();
         let footer = new Footer();
-        appEle.append(header.render(appEle), bodyEle, footer.render(appEle))
-    
+        // appEle.append(header.render(appEle), bodyEle.render(appEle), footer.render(appEle))
+        header.render(appEle)
+        bodyEle.render(appEle)
+        footer.render(appEle)
+
         if (bodyEle) {
           if (this.$activeScreen) {
             bodyEle.innerHTML = "";
