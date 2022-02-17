@@ -1,36 +1,47 @@
 import Header from "./containers/header/index.js";
 import Home from "./containers/home/index.js";
-import LoginScreen from "./containers/login/index.js"
 import Footer from "./containers/footer/index.js";
 
-class App{
-    $activeScreen
-    constructor(){
-        this.setUpMain();
-    }
-    setUpMain() {
-        let screen;
-        this.changeActiveScreen(screen);
-    };
-    changeActiveScreen(screen) {
-        const appEle = document.getElementById("app");
-        let header = new Header();
-        let bodyEle = new LoginScreen();
-        let footer = new Footer();
-        // appEle.append(header.render(appEle), bodyEle.render(appEle), footer.render(appEle))
-        header.render(appEle)
-        bodyEle.render(appEle)
-        footer.render(appEle)
+class App {
+  $activeScreen;
+  constructor() {
+    this.setUpMain();
+  }
 
-        if (bodyEle) {
-          if (this.$activeScreen) {
-            bodyEle.innerHTML = "";
-          }
-          this.$activeScreen = screen;
-          screen.render(bodyEle);
-        }
-    
+  setUpMain() {
+    let screen;
+    //TODO:create home screen
+    screen = new Home();
+    this.changeActiveScreen(screen);
+  }
+
+  changeActiveScreen(screen) {
+    // login
+    const appEle = document.getElementById("app");
+    appEle.innerHTML = "";
+
+    let header = new Header();
+    let footer = new Footer();
+
+    //  tạo ra body
+    let bodyEle = document.getElementById("body");
+    if (!bodyEle) {
+      bodyEle = document.createElement("div");
+      bodyEle.id = "body";
+      
     }
+
+    bodyEle.innerHTML = "";
+
+    header.render(appEle);
+    appEle.append(bodyEle);
+    footer.render(appEle);
+
+    if (screen) {
+      this.$activeScreen = screen;
+      screen.render(bodyEle);
+    }
+  }
 }
 
 const app = new App();

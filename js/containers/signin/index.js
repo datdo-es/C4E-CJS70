@@ -103,10 +103,10 @@ class Register{
     //         app.changeActiveScreen(checkEmail);
     //     }
     // }
-    render(appEle){
+    render(containerEle){
         this.formRegister.append(this.titleScreen,this.name.render(),this.email.render(), this.password.render(),this.repassword.render(),this.btnSubmit.render(),this.link);
         this.container.append(this.imageCover, this.formRegister);
-        appEle.appendChild(this.container);
+        containerEle.appendChild(this.container);
     }
 }
 export default Register;
