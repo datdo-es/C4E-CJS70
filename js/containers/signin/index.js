@@ -1,7 +1,7 @@
 import ButtonComponent from "../../components/button.js";
 import InputComponent from "../../components/input.js";
 import LoginScreen from "../login/index.js";
-// import {checkEmail, checkPassword, checkRepassword, isValid, check2Password} from "../../common/validation.js";
+import {checkEmail, checkPassword, checkRepassword, isValid, check2Password} from "../../common/validation.js";
 import app from "../../index.js";
 // import { createNewAccount } from "../../firebase/auth.js";
 class Register{
@@ -13,18 +13,18 @@ class Register{
     link;
 
     container;
-    imageCover;
+    row;
     formRegister;
     titleScreen;
     constructor(){
         this.container = document.createElement("div");
-        this.container.classList.add("row");
+        this.container.classList.add("container", "screen");
 
-        this.imageCover = document.createElement("div")
-        this.imageCover.classList.add("img-cover","col-8");
+        this.row = document.createElement("div");
+        this.row.classList.add("row","centerContent");
 
         this.formRegister = document.createElement("form");
-        this.formRegister.classList.add("form-container", "col-4");
+        this.formRegister.classList.add("form-container", "col-12");
         this.formRegister.addEventListener("submit",this.handleSubmit);
 
         this.titleScreen = document.createElement("div");
@@ -32,8 +32,8 @@ class Register{
         this.titleScreen.innerText="Register"
 
         this.link = document.createElement("a");
-        this.link.classList.add("title", "text-center");
-        this.link.innerText="Bạn đã có tài khoản";
+        this.link.classList.add("sign-link", "text-center");
+        this.link.innerText="Have an account";
         this.link.addEventListener("click",this.handleChangeScreen)
 
         this.name = new InputComponent(
@@ -61,7 +61,7 @@ class Register{
             "register-Repassword",
             "password"
         )
-        this.btnSubmit = new ButtonComponent("Register", ["btn-primary","btn"])
+        this.btnSubmit = new ButtonComponent("Register", ["bg-btn", "btn", "btn-login"])
     }
     handleChangeScreen = (e)=>{
         e.preventDefault();
@@ -72,40 +72,41 @@ class Register{
     //     this.btnSubmit.render().innerText = "";
     //     this.btnSubmit.render().innerHTML = `<div class="loader"></div>`;
     // }
-    // handleSubmit = async (e)=>{
-    //     e.preventDefault();
-    //     const {name,email,password,repassword} = e.target;
-    //     let isError =false;
-    //     if(isValid(name.value)!==null){
-    //         this.name.setError(isValid(name.value))
-    //         isError = true;
-    //     }
-    //     if(checkEmail(email.value)!== null){
-    //         this.email.setError(checkEmail(email.value))
-    //         isError = true;
-    //     }
-    //     if(checkPassword(password.value)!==null){
-    //         this.password.setError(checkPassword(password.value))
-    //         isError = true;
-    //     }
-    //     if(checkRepassword(repassword.value)!==null){
-    //         this.repassword.setError(checkRepassword(repassword.value))
-    //         isError = true;
-    //     }
-    //     if(check2Password(password.value, repassword.value)){
-    //         this.repassword.setError(check2Password(repassword.value,password.value))
-    //         isError = true
-    //     }
-    //     if(!isError){
-    //         this.setLoading();
-    //         await createNewAccount(email.value, password.value);
-    //         const checkEmail = new CheckEmailScreen();
-    //         app.changeActiveScreen(checkEmail);
-    //     }
-    // }
+    handleSubmit = async (e)=>{
+        e.preventDefault();
+        const {name,email,password,repassword} = e.target;
+        let isError =false;
+        if(isValid(name.value)!==null){
+            this.name.setError(isValid(name.value))
+            isError = true;
+        }
+        if(checkEmail(email.value)!== null){
+            this.email.setError(checkEmail(email.value))
+            isError = true;
+        }
+        if(checkPassword(password.value)!==null){
+            this.password.setError(checkPassword(password.value))
+            isError = true;
+        }
+        if(checkRepassword(repassword.value)!==null){
+            this.repassword.setError(checkRepassword(repassword.value))
+            isError = true;
+        }
+        if(check2Password(password.value, repassword.value)){
+            this.repassword.setError(check2Password(repassword.value,password.value))
+            isError = true
+        }
+        if(!isError){
+            this.setLoading();
+            await createNewAccount(email.value, password.value);
+            const checkEmail = new CheckEmailScreen();
+            app.changeActiveScreen(checkEmail);
+        }
+    }
     render(containerEle){
         this.formRegister.append(this.titleScreen,this.name.render(),this.email.render(), this.password.render(),this.repassword.render(),this.btnSubmit.render(),this.link);
-        this.container.append(this.imageCover, this.formRegister);
+        this.row.append(this.formRegister);
+        this.container.append(this.row)
         containerEle.appendChild(this.container);
     }
 }

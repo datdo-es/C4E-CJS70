@@ -95,7 +95,7 @@
     bottom: 0;
     right: 0;
     transform: translate3d(0,0,0);
-
+    margin: 0;
     background-image: url(https://cheerup.theme-sphere.com/travel/wp-content/uploads/sites/6/2016/09/footer-bg-1.png);
 }
 .about-text{
@@ -110,6 +110,10 @@
 body{
   font-family: 'Open Sans', sans-serif !important;
 }
+.screen{
+    padding: 0;
+    margin: auto;
+}
 .img-cover {
     height: 100vh;
     background: url("https://source.unsplash.com/random") no-repeat center / cover;
@@ -120,15 +124,19 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
   
 .big-title {
-    text-align: center;
-    font-size: 32px;
-    line-height: 30px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    width: 100%;
+    font-family: "DM Sans",sans-serif;
+    font-weight: 700;
+    color: #1d1d1f;
+    font-size: 57px;
+    line-height: 1.07em;
+    letter-spacing: -.03em;
+    margin: 25px 0;
+    word-wrap: break-word;
 }
   
 .popup-title{
@@ -140,23 +148,87 @@ body{
     color: #007bff;
 }
 .form-control {
-    height: 60px;
-    border-radius: 10px;
-    margin: 0;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin: 0 0 20px;
     padding: 0;
+    font-family: "DM Sans",sans-serif;
+    font-size: 22px;
+    line-height: 45px;
+    font-weight: 700;
+    color: #1d1d1f;
+    background-color: transparent;
+    border: 0 solid #dbdbdb;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    outline: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
 }
+.form-control:focus{
+    color: #1d1d1f !important;
+    background-color: transparent !important;
+    border-color: #1d1d1f !important;
+}
+
 .label-input {
     line-height: 60px;
     padding: 10px;
 }
 .label-text{
-  color: #2d2d2d;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 5px 0;
+    font-weight: 500;
+    color: #4c4c4c;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "DM Sans",sans-serif;
+    font-size: 18px;
+    padding: 0px;
 }
 .app{
   padding: 0;
   margin: 0;
   width: 100%;
+}
+.centerContent{
+    margin: auto;
+    padding: 40px 0px;
+}
+.btn-login{
+    width: 10%;
+    margin: 10px auto;
+}
+.bg-btn:hover{
+    color: #4c4c4c;
+    background-color: #f7f7f7;
+    border: 1px solid transparent;
+}
+.bg-btn{
+    color: #fff;
+    background-color: #1d1d1f;
+    font-family: "DM Sans",sans-serif;
+    font-size: 16px;
+    line-height: 2em;
+    font-weight: 600;
+    text-decoration: none;
+}
+.sign-link{
+    vertical-align: baseline;
+    margin: 0 auto;
+    padding: 0;
+    background: 0 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    color: #1d1d1f;
+    font-family: "DM Sans",sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    width: fit-content;
+}
+.sign-link:hover{
+    color: #1d1d1f;
+    border: 1px solid transparent;
+    padding: 0;
 }

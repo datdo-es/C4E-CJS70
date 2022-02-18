@@ -1,6 +1,9 @@
 import ButtonComponent from "../../components/button.js";
 import InputComponent from "../../components/input.js";
 import Register from "../signin/index.js";
+import app from "../../index.js";
+
+import {checkEmail, checkPassword} from "../../common/validation.js";
 
 class LoginScreen {
   email;
@@ -8,19 +11,20 @@ class LoginScreen {
   btnSubmit;
   link;
 
+  row;
+
   container;
-  imageCover;
   formLogin;
   titleScreen;
   constructor() {
     this.container = document.createElement("div");
-    this.container.classList.add("row");
+    this.container.classList.add("container", "screen");
 
-    this.imageCover = document.createElement("div");
-    this.imageCover.classList.add("img-cover", "col-8");
+    this.row = document.createElement("div");
+    this.row.classList.add("row","centerContent");
 
     this.formLogin = document.createElement("form");
-    this.formLogin.classList.add("form-container", "col-4");
+    this.formLogin.classList.add("form-container", "col-12");
     this.formLogin.addEventListener("submit", this.handleSubmit);
 
     this.titleScreen = document.createElement("div");
@@ -28,8 +32,8 @@ class LoginScreen {
     this.titleScreen.innerText = "Login";
 
     this.link = document.createElement("a");
-    this.link.classList.add("title", "text-center");
-    this.link.innerText = "Bạn chưa có tài khoản";
+    this.link.classList.add("sign-link", "text-center");
+    this.link.innerText = "Do not have an account";
     this.link.addEventListener("click", this.handleChangeScreen);
 
     this.email = new InputComponent(
@@ -44,7 +48,7 @@ class LoginScreen {
       "login-password",
       "password"
     );
-    this.btnSubmit = new ButtonComponent("Sign in", ["btn-primary", "btn"]);
+    this.btnSubmit = new ButtonComponent("Sign in", ["bg-btn", "btn", "btn-login"]);
   }
 
   handleChangeScreen = (e) => {
@@ -83,7 +87,8 @@ class LoginScreen {
       this.btnSubmit.render(),
       this.link
     );
-    this.container.append(this.imageCover, this.formLogin);
+    this.row.append(this.formLogin);
+    this.container.append(this.row)
     containerEle.appendChild(this.container);
   }
 }
