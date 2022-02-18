@@ -20,7 +20,6 @@ class Home{
 
     handleChangeScreen = (e)=>{
         e.preventDefault();
-        const login = new LoginScreen();
         app.changeActiveScreen(login);
     };
 

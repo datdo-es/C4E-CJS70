@@ -67,13 +67,13 @@ class Header {
 
     this.social = document.createElement("ul");
     this.social.classList.add("social");
-    this.social.innerHTML = `		
-            <i class="fa fa-facebook-f"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-google"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-linkedin-in"></i>
-            <i class="fa fa-pinterest"></i>
+    this.social.innerHTML = `	
+        <i class="fa fa-facebook-f"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-google"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin-in"></i>
+        <i class="fa fa-pinterest"></i>
 		`;
   }
 
