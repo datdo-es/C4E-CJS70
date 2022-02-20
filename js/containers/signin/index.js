@@ -3,7 +3,7 @@ import InputComponent from "../../components/input.js";
 import LoginScreen from "../login/index.js";
 import {checkEmail, checkPassword, checkRepassword, isValid, check2Password} from "../../common/validation.js";
 import app from "../../index.js";
-// import { createNewAccount } from "../../firebase/auth.js";
+import { createNewAccount } from "../../firebase/auth.js";
 class Register{
     email;
     password;
@@ -68,10 +68,10 @@ class Register{
         const login = new LoginScreen();
         app.changeActiveScreen(login);
     };
-    // setLoading() {
-    //     this.btnSubmit.render().innerText = "";
-    //     this.btnSubmit.render().innerHTML = `<div class="loader"></div>`;
-    // }
+    setLoading() {
+        this.btnSubmit.render().innerText = "Loading ....";
+        this.btnSubmit.render().innerHTML = `<div class="loader"></div>`;
+    }
     handleSubmit = async (e)=>{
         e.preventDefault();
         const {name,email,password,repassword} = e.target;
