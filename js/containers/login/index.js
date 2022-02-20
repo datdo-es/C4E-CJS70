@@ -74,7 +74,7 @@ class LoginScreen {
         email.value,
         password.value
       );
-      const mainScreen = new InfoScreen();
+      const mainScreen = new createUser();
       app.changeActiveScreen(mainScreen);
     }
   };
@@ -88,7 +88,8 @@ class LoginScreen {
       this.link
     );
     this.row.append(this.formLogin);
-    this.container.append(this.row)
+    this.container.append(this.row);
+
     containerEle.appendChild(this.container);
   }
 }
